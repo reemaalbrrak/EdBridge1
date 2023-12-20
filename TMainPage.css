@@ -1,0 +1,183 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#header {
+  background-color: #756f8e;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+#search-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#search-bar {
+  padding: 8px;
+  width: 60%;
+  font-size: 14px;
+}
+
+#search-button {
+  padding: 8px;
+  font-size: 14px;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+/* Styling for Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #524f69;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1; /* Ensure the sidebar is above other elements */
+  overflow-y: auto; /* Add a vertical scrollbar if the content overflows */
+}
+
+/* Styling for Sidebar Logo */
+.logo {
+  margin-bottom: 20px;
+}
+
+.logo img {
+  max-width: 100%; /* Make the logo responsive within its container */
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #756f8e;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #9887a4;
+}
+
+/* Styling for Section Containers */
+.section-container {
+  clear: both;
+  margin-top: 20px;
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: space-between; /* Add space between items */
+}
+
+.chart-container {
+  width: 30%;
+  margin: 20px;
+  float: left;
+  background-color: #fff; /* Set a background color to make sure it's visible */
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box; /* Include padding and border in the total width */
+  position: relative;
+}
+
+.chart-container canvas {
+  width: 100%; /* Make the canvas responsive within its container */
+  height: auto;
+}
+
+.chart-container p {
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+}
+
+.section-box {
+  width: calc(30% - 20px); /* Calculate width to fit three boxes beside each other with some margin */
+  margin: 10px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box; /* Include padding and border in the total width */
+}
+
+/* Styling for Content Area */
+.content {
+  margin-left: 250px; /* Adjust based on the sidebar width */
+  padding: 20px;
+}
+
+#content {
+  margin-left: 200px; /* Adjusted margin for content area */
+  padding: 16px;
+}
+
+.chart-container {
+  width: 30%;
+  margin: 20px;
+  float: left;
+  background-color: #fff; /* Set a background color to make sure it's visible */
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box; /* Include padding and border in the total width */
+  position: relative;
+}
+
+/* Styling for Content Area */
+.content {
+  margin-left: 250px; /* Adjust based on the sidebar width */
+  padding: 20px;
+}
+
+#content {
+  margin-left: 200px; /* Adjusted margin for content area */
+  padding: 16px;
+}
+
+.chart-container {
+  width: 30%;
+  margin: 20px;
+  float: left;
+  background-color: #fff; /* Set a background color to make sure it's visible */
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box; /* Include padding and border in the total width */
+  position: relative;
+}
+
+/* Styling for Buttons */
+.button-container {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container button {
+  width: 48%;
+  padding: 10px;
+  background-color: #756f8e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #9887a4;
+}
+

@@ -1,0 +1,122 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #524f69;
+}
+
+.container {
+    margin: 0 40px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container h1 {
+    color: #ebeaf0;
+}
+
+.container .tab {
+    position: relative;
+    background: #fff;
+    padding: 0 20px 20px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.container .tab input {
+    appearance: none;
+}
+
+.container .tab label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container .tab label::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 2em;
+    color: rgba(0, 0, 0, 0.1);
+    transition: transform 1s;
+}
+
+.container .tab:hover label::after {
+    color: #524f69;
+}
+
+.container .tab input:checked ~ label::after {
+    transform: rotate(135deg);
+}
+
+.container .tab label h2 {
+    width: 40px;
+    height: 40px;
+    background: #756f8e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.25em;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.container .tab label h3 {
+    position: relative;
+    font-weight: 500;
+    color: #524f69;
+    z-index: 10;
+}
+
+.container .tab .content {
+    max-height: 0;
+    transition: 1s;
+    overflow: hidden;
+}
+
+.container .tab input:checked ~ .content {
+    max-height: 100vh;
+}
+
+.container .tab .content p {
+    position: relative;
+    padding: 10px 0;
+    color: #756f8e;
+    z-index: 10;
+}
+.contact-info {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+.contact-info h2 {
+    color: #756f8e;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    color: #756f8e;
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: #524f69;
+    text-decoration: none;
+}

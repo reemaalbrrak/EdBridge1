@@ -1,0 +1,198 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Styling for Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #524f69;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo img {
+    max-width: 80px; /* Adjust as needed */
+    margin-bottom: 20px;
+  }
+  
+  .sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #756f8e; /* Darker shade of purple */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar button:hover {
+    background-color: #9887a4; /* Lighter shade on hover */
+  }
+  
+  /* Styling for Content Area */
+  .content {
+    margin-left: 220px; /* Adjust based on the sidebar width */
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    color: #524f69; /* Dark pastel purple for header text */
+  }
+  
+  .course-list {
+    list-style: none;
+  }
+  
+  .course-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .course-list li span {
+    color: #524f69; /* Dark pastel purple for course text */
+    font-weight: bold;
+  }
+  .course-actions .edit-btn {
+    margin-right: 10px; /* Adjust the margin as needed */
+  }
+  
+  .course-actions .edit-btn,
+  .course-actions .delete-btn {
+    padding: 8px 15px; /* Adjust size */
+    background-color: #756f8e; /* Darker shade of purple */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .course-actions .edit-btn:hover,
+  .course-actions .delete-btn:hover {
+    background-color: #9887a4; /* Lighter shade on hover */
+  }
+  
+  .create-course-btn {
+    padding: 10px 20px;
+    background-color: #524f69;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+  }
+  
+  .create-course-btn:hover {
+    background-color: #756f8e; /* Darker shade on hover */
+  }
+
+/* Add your existing CSS styles here */
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.delete-confirmation {
+  background-color: #fff; 
+  margin: 20% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 50%;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.delete-confirmation button {
+  margin: 5px;
+  padding: 8px 20px;
+  background-color: #756f8e; /* Darker shade of purple */
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-confirmation button:hover {
+  background-color: #9887a4; /* Lighter shade of purple on hover */
+}
+
+/* Remove underline from anchor tags */
+.course-list li a {
+  text-decoration: none;
+  color: inherit; /* Ensures the anchor text color matches its parent */
+}
+
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  color: #524f69;
+  margin: 8% auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content button {
+  display: block;
+  margin-bottom: 10px;
+  width: calc(100% - 20px);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.modal-content button {
+  background-color: #524f69;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-content input[type="text"],
+.modal-content textarea {
+  margin-bottom:1.5px; /* Adjust the margin between fields */
+}
+

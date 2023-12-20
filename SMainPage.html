@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="SMainPage.css">
+  
+</head>
+<body>
+
+<div id="header">
+  <h1>Dashboard</h1>
+</div>
+
+<div id="search-container">
+  <input type="text" id="search-bar" placeholder="Search...">
+  <button id="search-button" onclick="performSearch()">Search</button>
+</div>
+<div class="sidebar">
+  <div class="logo">
+      <img src="logo.png" alt="Logo">
+  </div>
+  <button onclick="window.location.href='profile.html'">Profile</button>
+  <button onclick="window.location.href='courses.html'">Courses</button>
+  <button onclick="window.location.href='assignments.html'">Assignments</button>
+  <button onclick="window.location.href='exams.html'">Exams</button>
+  <button onclick="window.location.href='announcements.html'">Announcements</button>
+  <button onclick="window.location.href='messages.html'">Messages</button>
+  <button onclick="window.location.href='calender.html'">Calender</button>
+  <button onclick="window.location.href='Help.html'">Help</button>
+  <button onclick="window.location.href='logout.html'">Logout</button>
+</div>
+
+<div id="content">
+  <h2>Progress Chart</h2>
+
+  <div class="chart-container">
+    <canvas id="course1-chart"></canvas>
+    <p>Course 1 Progress</p>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="course2-chart"></canvas>
+    <p>Course 2 Progress</p>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="course3-chart"></canvas>
+    <p>Course 3 Progress</p>
+  </div>
+
+
+ 
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Sample data (replace with your actual data)
+    const classes = ['Assignments', 'Quizzez', 'Exams', 'Projects', 'Attendance'];
+    const grades = ['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
+    const randomData = () => Math.floor(Math.random() * grades.length);
+
+    // Generate random progress data for each course
+    const generateRandomData = () => Array.from({ length: classes.length }, () => Array.from({ length: grades.length }, randomData));
+    const dataCourse1 = generateRandomData();
+    const dataCourse2 = generateRandomData();
+    const dataCourse3 = generateRandomData();
+
+    // Calculate average grade for each class
+    const calculateClassAverages = (data) => data.map(classData => classData.reduce((acc, grade, index) => acc + (index + 1) * grade, 0) / classData.reduce((acc, grade) => acc + grade, 0));
+
+    // Chart configuration for each course
+    const createChart = (canvasId, data, courseName) => {
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      const classAverages = calculateClassAverages(data);
+      return new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: classes,
+          datasets: [{
+            label: `Average Grade (${courseName})`,
+            data: classAverages,
+            backgroundColor: `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.7)`,
+          }],
+        },
+        options: {
+          scales: {
+            x: {
+              stacked: true,
+            },
+            y: {
+              stacked: true,
+            },
+          },
+        },
+      });
+    };
+
+    // Create charts for each course
+    const chartCourse1 = createChart('course1-chart', dataCourse1, 'Course 1');
+    const chartCourse2 = createChart('course2-chart', dataCourse2, 'Course 2');
+    const chartCourse3 = createChart('course3-chart', dataCourse3, 'Course 3');
+
+    // Function to perform search (replace with your actual search logic)
+    function performSearch() {
+      const searchTerm = document.getElementById('search-bar').value;
+      alert(`Performing search for: ${searchTerm}`);
+      // Add your search logic here
+    }
+  </script>
+
+</div>
+
+</body>
+</html>

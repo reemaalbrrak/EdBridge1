@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduBridge Login / Sign Up form</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="styleLogin.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="EduBridge Logo" class="center-image">
+        <form class="form" id="login">
+            <h1 class="form__title">Login</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <select id="role" class="form__input">
+                    <option value="role">Role</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                </select>
+                <div class="form__input-error-message" id="role-error"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="text" class="form__input" id="email" autofocus placeholder="Email">
+                <div class="form__input-error-message" id="email-error"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" id="password" autofocus placeholder="Password">
+                <div class="form__input-error-message" id="password-error"></div>
+            </div>
+            <button class="form__button" type="submit">Submit</button>
+            <p class="form__text">
+                <a href="passwordReset.html" class="form__link">Forgot Password</a>
+            </p>
+            <p class="form__text">
+                Don't have an account? <a href="signup.html">Sign up</a>
+            </p>
+        </form>
+    </div>
+    <script>
+        document.getElementById("login").addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            var role = document.getElementById("role").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var roleError = document.getElementById("role-error");
+            var emailError = document.getElementById("email-error");
+            var passwordError = document.getElementById("password-error");
+
+            // Reset error messages
+            roleError.innerText = "";
+            emailError.innerText = "";
+            passwordError.innerText = "";
+
+            if (role === "role") {
+                roleError.innerText = "Please select a valid role.";
+                e.preventDefault(); // Prevent the form from submitting
+            } else if (email.trim() && password.trim()) {
+                // Redirect to the corresponding page based on the role
+                if (role === "teacher") {
+                    window.location.href = "TMainPage.html";
+                } else if (role === "student") {
+                    window.location.href = "SMainPage.html";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

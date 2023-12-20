@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courses Page</title>
+  <link rel="stylesheet" href="CoursePage.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <button onclick="window.location.href='profile.html'">Profile</button>
+    <button onclick="window.location.href='TMainPage.html'">Home</button>
+    <button onclick="window.location.href='assignments.html'">Assignments</button>
+    <button onclick="window.location.href='exams.html'">Exams</button>
+    <button onclick="window.location.href='help.html'">Help</button>
+    <button onclick="window.location.href='logout.html'">Logout</button>
+  </div>
+  
+  <div class="content">
+    <h1>My Courses</h1>
+    <ul class="course-list">
+      <li>
+        <a href="course_details_1.html">
+          <span>Course 1</span>
+        </a>
+        <div class="course-actions">
+          <button class="edit-btn" onclick="openEditCourseModal('Course 1')">Edit</button>
+
+          <button class="delete-btn" onclick="openDeleteConfirmation('Course 1')">Delete</button>
+        </div>
+      </li>
+      <li>
+        <a href="course_details_2.html">
+          <span>Course 2</span>
+        </a>
+        <div class="course-actions">
+          <button class="edit-btn" onclick="openEditCourseModal('Course 2')">Edit</button>
+          <button class="delete-btn" onclick="openDeleteConfirmation('Course 2')">Delete</button>
+        </div>
+      </li>
+      <!-- Add more courses as needed -->
+    </ul>
+    <button class="create-course-btn" onclick="openAddCourseModal()">Create New Course</button>
+  </div>
+
+  <div class="modal" id="deleteConfirmationModal">
+    <div class="modal-content delete-confirmation">
+      <p id="confirmationText"></p>
+      <button onclick="deleteCourse()">Confirm</button>
+      <button onclick="closeDeleteConfirmation()">Cancel</button>
+    </div>
+  </div>
+
+  <div class="modal" id="addCourseModal">
+    <div class="modal-content create-course">
+      <span onclick="closeAddCourseModal()" class="close">&times;</span>
+      <h2>Create New Course</h2>
+      <form id="newCourseForm">
+        <label for="courseTitle">Title:</label><br>
+        <input type="text" id="courseTitle" name="courseTitle" maxlength="100" required><br>
+   
+        <label for="courseEducator">Educator's Name:</label><br>
+      <input type="text" id="courseEducator" name="courseEducator" maxlength="100" required><br>
+
+        <label for="courseDescription">Description:</label><br>
+        <textarea id="courseDescription" name="courseDescription" rows="2" cols="50" required></textarea><br>
+  
+        <label for="courseObjectives">Objectives:</label><br>
+        <textarea id="courseObjectives" name="courseObjectives" rows="2" cols="50" required></textarea><br>
+  
+        <label for="courseAudience">Targeted Audience:</label><br>
+        <textarea id="courseAudience" name="courseAudience" rows="2" cols="50" required></textarea><br>
+  
+        <label for="coursePrerequisites">Pre-Requirements:</label><br>
+        <textarea id="coursePrerequisites" name="coursePrerequisites" rows="2" cols="50" required></textarea><br>
+  
+        <button type="submit">Add Course</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add this after the "Create New Course" modal in your HTML -->
+<div class="modal" id="editCourseModal">
+  <div class="modal-content">
+    <span onclick="closeEditCourseModal()" class="close">&times;</span>
+    <h2>Edit Course</h2>
+    <form id="editCourseForm">
+      <!-- Fields for editing the course -->
+      <label for="editCourseTitle">Title:</label>
+      <input type="text" id="editCourseTitle" name="editCourseTitle" maxlength="100" required>
+      
+      <label for="editCourseDescription">Description:</label>
+      <textarea id="editCourseDescription" name="editCourseDescription" rows="4" required></textarea>
+      
+      <!-- Other fields for editing -->
+      
+      <button type="submit" onclick="updateCourse()">Update Course</button>
+    </form>
+  </div>
+</div>
+  
+
+
+  <script>
+    function openDeleteConfirmation(courseName) {
+      var modal = document.getElementById('deleteConfirmationModal');
+      var confirmationText = document.getElementById('confirmationText');
+      confirmationText.innerHTML = `Are you sure you want to delete "${courseName}"?`;
+      modal.style.display = 'block';
+    }
+
+    function closeDeleteConfirmation() {
+      var modal = document.getElementById('deleteConfirmationModal');
+      modal.style.display = 'none';
+    }
+
+    function deleteCourse() {
+      // Here, you can add code to delete the course
+      // For demonstration, let's remove the item from the list
+      var modal = document.getElementById('deleteConfirmationModal');
+      var confirmationText = document.getElementById('confirmationText');
+      var courseList = document.querySelector('.course-list');
+
+      // Get the course to delete (in this case, we'll remove the first one)
+      var courseToDelete = courseList.querySelector('li');
+      
+      // Remove the course from the list
+      if (courseToDelete) {
+        courseList.removeChild(courseToDelete);
+      }
+
+      // Close the confirmation modal
+      modal.style.display = 'none';
+
+      console.log('Course deleted.');
+    }
+//
+    function openAddCourseModal() {
+      var modal = document.getElementById('addCourseModal');
+      modal.style.display = 'block';
+    }
+    
+    function closeAddCourseModal() {
+      var modal = document.getElementById('addCourseModal');
+      modal.style.display = 'none';
+    }
+    
+    document.getElementById('newCourseForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      var title = document.getElementById('courseTitle').value;
+      var description = document.getElementById('courseDescription').value;
+      
+      // Create a new list item
+      var courseList = document.querySelector('.course-list');
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#'; // Replace with the actual course details page link
+      var span = document.createElement('span');
+      span.textContent = title;
+      a.appendChild(span);
+      
+      var div = document.createElement('div');
+      div.className = 'course-actions';
+      var editBtn = document.createElement('button');
+      editBtn.className = 'edit-btn';
+      editBtn.textContent = 'Edit';
+      var deleteBtn = document.createElement('button');
+      deleteBtn.className = 'delete-btn';
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.onclick = function() { openDeleteConfirmation(title); };
+      
+      div.appendChild(editBtn);
+      div.appendChild(deleteBtn);
+      
+      li.appendChild(a);
+      li.appendChild(div);
+      
+      courseList.appendChild(li);
+      
+      closeAddCourseModal();
+    });
+
+
+     // Function to open the edit course modal
+  function openEditCourseModal(courseName) {
+    // Get the existing course details here and fill in the fields in the edit modal
+    var course = getCourseDetails(courseName); // Function to fetch course details
+    
+    // Populate the edit modal fields
+    document.getElementById('editCourseTitle').value = course.title;
+    document.getElementById('editCourseDescription').value = course.description;
+    
+    // Open the edit modal
+    var modal = document.getElementById('editCourseModal');
+    modal.style.display = 'block';
+
+    console.log('Edit button clicked for', courseName);
+  }
+  
+  // Function to close the edit course modal
+  function closeEditCourseModal() {
+    var modal = document.getElementById('editCourseModal');
+    modal.style.display = 'none';
+  }
+  
+  // Function to update the course in the list
+  function updateCourse() {
+    // Get the updated course details from the edit modal fields
+    var updatedTitle = document.getElementById('editCourseTitle').value;
+    var updatedDescription = document.getElementById('editCourseDescription').value;
+    
+    // Update the course in the list with the new details
+    // Perform necessary actions to update the course details
+    
+    // Close the edit modal after updating
+    closeEditCourseModal();
+  }
+  
+  // Mock getCourseDetails function to simulate fetching course details
+function getCourseDetails(courseName) {
+  // Assuming course details are stored in an object or fetched from an API
+  // Mocking the behavior for Course 1 and Course 2
+  if (courseName === 'Course 1') {
+    return {
+      title: 'Course 1',
+      description: 'Description for Course 1',
+      // Other course details...
+    };
+  } else if (courseName === 'Course 2') {
+    return {
+      title: 'Course 2',
+      description: 'Description for Course 2',
+      // Other course details...
+    };
+  } else {
+    // Handle other cases or return null for non-existing courses
+    return null;
+  }
+}
+
+  
+  </script>
+</body>
+</html>
