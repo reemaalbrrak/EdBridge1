@@ -87,12 +87,7 @@
     
             // Check if all input fields are valid before redirecting
             if (!roleError.innerText && !emailError.innerText && !passwordError.innerText && !confirmPasswordError.innerText) {
-                // Redirect based on the selected role
-                if (role === "teacher") {
-                    window.location.href = "index2.html";
-                } else if (role === "student") {
-                    window.location.href = "index2.html";
-                }
+                    window.location.href = "login.html";
             }
         });
     </script>
