@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment Student Page</title>
+  <link rel="stylesheet" href="AssignmentSTUDENT.css">
+  <!-- Add your CSS styles -->
+  <div class="sidebar">
+    <div class="logo">
+        <img src="logo.png" alt="Logo" width="165px">
+    </div>
+</head>
+<body>
+  <!-- Sidebar for student -->
+  <div id="sidebar">
+    <!-- Sidebar content -->
+    <!-- ... -->
+  </div>
+
+  <!-- Main content -->
+  <div id="main-content">
+    <!-- Assignment submission section -->
+    <div class="assignment">
+      <h2>Assignment 1: Physics</h2>
+      <p>Teacher: Nora Alajlan</p>
+      <p>Description: Physics equation</p>
+      <p id="deadlineCountdown">Deadline: 7 days left</p> <!-- Deadline countdown -->
+      <input type="file" id="fileInput" accept=".pdf,.doc,.docx"> <!-- File upload -->
+      <textarea id=textArea placeholder="Write your submission..."></textarea> <!-- Text submission -->
+
+      <button onclick="submitAssignment()">Submit</button>
+      <p id="submissionStatus"></p> <!-- Submission status message -->
+      <button onclick="showFeedback()">Show Feedback</button>
+      <div id="feedback" style="display: none;">
+        <!-- Display teacher's feedback -->
+        <h3>Feedback from Teacher:</h3>
+        <p id="assignmentFeedback"></p> <!-- Display feedback -->
+        <div id="replayFeedback" style="display: none;">
+          <textarea id="replyTextArea" placeholder="Write your reply..."></textarea> <!-- Reply to feedback -->
+          <button onclick="submitReply()">Reply to Feedback</button>
+          <p id="replyStatus"></p> <!-- Reply status message -->
+        </div>
+      </div>
+    </div>
+    <div id="replaySection" style="left: 20px;">
+      <button onclick="showReplay()">Reply to Feedback</button>
+      <div id="replayInput" style="display: none;">
+        <textarea id="studentReplay" style="width: 200px; height: 50px;"></textarea>
+        <button onclick="submitReplay()">Submit</button>
+      </div>
+      <p id="replayMessage" style="color: red; display: none;">Write your feedback!</p>
+    </div>
+    <p id="studentReplayText" style="display: none;"></p>
+      
+<script>
+function showReplay() {
+  document.getElementById('replayInput').style.display = 'block';
+}
+
+function submitReplay() {
+  const replayText = document.getElementById('studentReplay').value.trim();
+  if (replayText) {
+    document.getElementById('studentReplayText').innerText = `Student's Replay: ${replayText}`;
+    document.getElementById('studentReplayText').style.display = 'block';
+    document.getElementById('replayInput').style.display = 'none'; // Hide the text area
+  } else {
+    document.getElementById('replayMessage').style.display = 'block';
+  }
+}
+
+</script>
+    <!-- Assignment grades and progress -->
+    <div id="grades">
+      <h2>Assignment Grades</h2>
+      <ul>
+        <id="assignmentGrade">Assignment 1: Physics - Grade: A
+        <!-- Add more assignment grades here -->
+      </ul>
+      <h2>Overall Progress</h2>
+      <p id="progress">Progress: 80%</p>
+      <div class="progress-bar" style="width: 80%;"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript code -->
+  
+  <script>
+    // Function to validate and submit assignment
+    function submitAssignment() {
+      const fileInput = document.getElementById('fileInput');
+      const textArea = document.getElementById('textArea');
+      const submissionStatus = document.getElementById('submissionStatus');
+
+      if (fileInput.files.length === 0 && textArea.value.trim() === '') {
+        submissionStatus.innerText = 'Write or upload a file';
+        submissionStatus.style.color = 'red';
+      } else {
+        submissionStatus.innerText = 'Assignment submitted';
+        submissionStatus.style.color = 'green';
+        // Add logic to handle submission to server/database
+
+        // Simulate a notification for new feedback
+        simulateNotification('New feedback from Teacher');
+
+        // Simulate grade assignment and update progress
+        const grades = ['A', 'B', 'C', 'D', 'F'];
+        const randomGrade = grades[Math.floor(Math.random() * grades.length)];
+        document.getElementById('assignmentGrade').innerText = `Assignment 1: Physics - Grade: ${randomGrade}`;
+        updateProgress();
+      }
+    }
+    // Function to display feedback
+    function showFeedback() {
+      const feedback = document.getElementById('feedback');
+      feedback.style.display = 'block';
+      document.getElementById('assignmentFeedback').innerText = 'Good effort!'; // Simulate feedback
+    }
+
+    // Function to submit student's reply to feedback
+    function submitReply() {
+      const replyTextArea = document.getElementById('replyTextArea');
+      const replyStatus = document.getElementById('replyStatus');
+
+      if (replyTextArea.value.trim() !== '') {
+        replyStatus.innerText = 'Reply submitted successfully';
+        replyStatus.style.color = 'green';
+        document.getElementById('replayFeedback').style.display = 'none'; // Hide reply section
+        // Add logic to handle reply submission to server/database
+        const studentReply = document.createElement('p');
+        studentReply.innerText = `Student's replay: ${replyTextArea.value}`;
+        document.body.appendChild(studentReply);
+      } else {
+        replyStatus.innerText = 'Write a reply';
+        replyStatus.style.color = 'red';
+      }
+    }
+    // Function to update progress bar based on grades
+    function updateProgress() {
+      const progressBar = document.querySelector('.progress-bar');
+      const grades = ['A', 'B', 'C', 'D', 'E'];
+      const completedAssignments = grades.length - 1; // Assuming 1 assignment completed
+      const progress = (completedAssignments / grades.length) * 100;
+      document.getElementById('progress').innerText = `Progress: ${progress.toFixed(2)}%`;
+      progressBar.style.width = `${progress}%`;
+    }
+
+    // Countdown timer for assignment deadline (1 week countdown)
+    const deadlineDate = new Date();
+    deadlineDate.setDate(deadlineDate.getDate() + 7); // Add 7 days
+    const timer = document.getElementById('deadlineCountdown');
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = deadlineDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      timer.innerText = `Deadline: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        clearInterval(countdown);
+        timer.innerText = 'Deadline Passed';
+      }
+    }, 1000);
+
+    // Simulate a notification pop-up on the page
+    function simulateNotification(message) {
+      alert(message);
+    }
+
+    // Call functions, simulate notifications, etc. as needed
+    updateProgress(); // Simulate progress update
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+body {
+  margin: 10px;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  color: #524f69;
+}
+
+h1, h2, h3, p {
+  margin: 2px;
+  font-size: 17px;
+  
+}
+#header {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Styling for Sidebar */
+.sidebar {
+  position: flex;
+  top: 100px;
+  left: 0;
+  width: -200px;
+  height: 2000%;
+  background-color: #524f69;
+  color: #f2ecec;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: auto;
+}
+
+/* Styling for Sidebar Logo */
+.logo {
+  margin-bottom: 10px;
+}
+
+.logo img {
+  max-width: 100%;
+}
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #7f7b9b;
+  color: #f2ecec;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: center;
+}
+
+textarea {
+  width: 240px;
+  height: 60px;
+  resize: none;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin: 10px auto 10px auto; /* Center horizontally with margins */
+  display: grid ;
+}
+button:hover {
+  opacity: 0.8;
+}
