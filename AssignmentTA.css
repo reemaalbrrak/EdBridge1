@@ -1,0 +1,308 @@
+/* AssignmentTA.css */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Background color for the body */
+}
+
+/* Logo style */
+img {
+    display: block;
+    margin: 20px auto; /* Adjust margin as needed */
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: #524f69; /* Main theme color */
+    color: #fff;
+    width: 200px;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar ul li a:hover {
+    color: rgb(255, 255, 255);
+}
+
+/* Content styles */
+.content {
+    padding: 20px;
+}
+
+#assignmentsSection {
+    font-size: medium;
+    display: none;
+}
+
+h1 {
+    color: #524f69; /* Heading color matching the theme */
+}
+
+#assignmentList {
+    margin-bottom: 20px;
+    font-size: medium;
+}
+
+/* Student profiles section */
+#studentProfiles {
+    color: #524f69;
+    color-scheme: #524f69;
+    font-size: medium;
+    display: none;
+}
+
+#studentsList {
+    color: black;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: medium;
+}
+
+/* Create Assignment styles */
+#createAssignmentBar {
+    font-size: large;
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+#assignmentDetails {
+    color: #524f69;
+    font-size: smaller;
+    display: none;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+}
+
+.success-message {
+    margin-right: 20px;
+    color: green;
+    font-size: 0.9em;
+}
+
+/* Form styles */
+form {
+    background-color: #fff; /* Form background color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for the form */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #524f69; /* Label color matching the theme */
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+textarea,
+input[type="file"],
+input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #524f69;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #423e54; /* Darker shade for hover */
+}
+/* AssignmentTA.css */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Background color for the body */
+}
+
+/* Logo style */
+img {
+    display: block;
+    margin: 20px auto; /* Center the logo and add margin */
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: #524f69; /* Main theme color */
+    color: #fff;
+    width: 200px;
+    height: 100vh;
+    padding-top: 20px;
+    position: fixed; /* Fixed position */
+    top: 0; /* Stick to the top */
+    left: 0; /* Stick to the left */
+    overflow-y: auto; /* Enable scrolling if content exceeds */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar ul li a:hover {
+    color: #b6a8cb;
+}
+
+/* Content styles */
+.content {
+    padding: 20px;
+    margin-left: 220px;
+    font-size: 15px; /* Adjust margin to create space for sidebar */
+}
+
+#assignmentsSection {
+    display: none;
+}
+
+h1 {
+    color: #524f69; /* Heading color matching the theme */
+}
+
+#assignmentList {
+    margin-bottom: 20px;
+}
+
+/* Student profiles section */
+#studentProfiles {
+    display: none;
+}
+
+#studentsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Create Assignment styles */
+#createAssignmentBar {
+    position: fixed;
+    top: 50px; /* Adjust this value to change the vertical position */
+    left: -28px; /* Adjust this value to position it from the left */
+    z-index: 999; /* Ensures it's above other elements */
+    background-color: #524f69;
+    border-color: #524f69;
+    padding: 10px;
+    border: none; /* Removing the border */
+    border-radius: none;
+  }
+  
+  
+  
+
+#assignmentDetails {
+    display: none;
+    margin-top: 20px;
+    max-width: 600px; /* Set a maximum width for the assignment details */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto;
+    color: #524f69;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+}
+
+.success-message {
+    color: green;
+    font-size: 0.9em;
+    position: fixed;
+    position: center;
+    left: 49%;
+    transform: translateX(-60%);
+    position: absolute;
+    bottom: -214px; /* Initially hides the message above the viewport */
+    transition: bottom -900px ease; /* Adding transition effect */
+    display: none; /* Initially hides the message */
+}
+
+
+
+/* Form styles */
+form {
+    background-color: #ffffff; /* Form background color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(250, 249, 249); /* Box shadow for the form */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #524f69; /* Label color matching the theme */
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+textarea,
+input[type="file"],
+input[type="submit"] {
+    width: calc(130% - 260px); /* Adjust width considering padding and border */
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #524f69;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #b6a8cb /* Darker shade for hover */
+}

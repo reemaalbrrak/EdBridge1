@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment</title>
+    <link rel="stylesheet" href="AssignmentTA.css">
+    <img src="logo.png" alt="Logo"width="170px"alt="Logo"position= '90px'>
+    <!-- Any necessary styles or external CSS links can be added here -->
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li><a href="#" id="assignmentsLink">Assignments</a></li>
+            <!-- Other sidebar options -->
+        </ul>
+        <style>
+          #assignmentsLink {
+    font-size: medium;
+    margin: px 5px;
+    margin-top: bottom 10px; /* Adjust this value to move it down */
+    display: block;
+}
+        </style>
+    </div>
+
+    <div class="content" id="assignmentsSection" style="display: none;">
+        <h1>Assignment Information</h1>
+        <div id="assignmentList">
+            <!-- Previous assignments will be displayed here -->
+        </div>
+        <div id="studentProfiles" style="display: none;">
+            <h2>Student Profiles for Assignment</h2>
+            <ul id="studentsList">
+                <!-- Student profiles will be displayed here -->
+            </ul>
+        </div>
+    </div>
+<style>
+  #studentProfiles {
+    font-size: 14px;
+  }
+</style>
+<style>
+  #assignmentSection {
+    font-size: 0px;
+  }
+</style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const assignmentsLink = document.getElementById('assignmentsLink');
+            const assignmentsSection = document.getElementById('assignmentsSection');
+            const assignmentList = document.getElementById('assignmentList');
+            const studentsList = document.getElementById('studentsList');
+            const studentProfiles = document.getElementById('studentProfiles');
+
+            assignmentsLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                assignmentsSection.style.display = 'block';
+                displayAssignments();
+            });
+
+            function displayAssignments() {
+                const assignments = [
+                    { title: 'Assignment 1', students: ['Student Nora', 'Student Shaden', 'Student Reema'] },
+                    { title: 'Assignment 2', students: ['Student Leen', 'Student Reemas'] },
+                    // More assignment data
+                ];
+
+                assignmentList.innerHTML = '';
+                assignments.forEach((assignment, index) => {
+                    const assignmentDiv = document.createElement('div');
+                    assignmentDiv.textContent = `${assignment.title} - ${assignment.students.length} students submitted`;
+                    assignmentDiv.addEventListener('click', function() {
+                        displayStudentProfiles(assignment.students);
+                    });
+                    assignmentList.appendChild(assignmentDiv);
+                });
+            }
+
+            function displayStudentProfiles(students) {
+                studentsList.innerHTML = '';
+                students.forEach(student => {
+                    const studentItem = document.createElement('li');
+                    studentItem.textContent = student;
+                    studentsList.appendChild(studentItem);
+                });
+                studentProfiles.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Create New Assignment</title>
+    <style>
+      /* Styling for demonstration purposes */
+      #assignmentDetails {
+        display: none;
+        margin-top: 20px;
+      }
+      .error-message {
+        color: red;
+        font-size: 0.9em;
+      }
+      .success-message {
+        color: green;
+        font-size: 0.9em;
+      }
+    </style>
+</head>
+<body>
+  <div id="createAssignmentBar">
+    <b id="createAssignmentBtn">Create New Assignment</title>
+    <style>
+     #createAssignmentBar {
+      color: rgb(242, 237, 237); /* Adjust the color as needed */
+      
+      cursor: pointer; /* Change cursor to a hand */
+      display: inline; /* Display as inline element */
+      font-size: medium;
+      font-weight: 400 !important; /* Set font weight to normal */
+      margin: 36px; /* Reset margin */
+      margin-top: 19px;
+      padding: 0px; /* Reset padding */
+      border: none; /* Remove default button border */
+      background: none; /* Remove default button background */
+      bottom: 9px;
+      font-size: small;
+
+     }
+     #createAssignmentBar:hover {
+      text-decoration: none; /* Remove underline on hover */
+      color: #b6a8cb; /* Adjust color on hover */
+    }
+    </style>
+    
+  </div>
+
+  <div id="assignmentDetails">
+    <h2>Assignment Details</h2>
+    <form id="assignmentForm">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required><br>
+      <span class="error-message" id="titleError"></span><br>
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea><br>
+      <span class="error-message" id="descriptionError"></span><br>
+
+      <label for="instructions">Instructions:</label>
+      <textarea id="instructions" name="instructions" required></textarea><br>
+      <span class="error-message" id="instructionsError"></span><br>
+
+      <label for="dueDate">Due Date:</label>
+      <input type="date" id="dueDate" name="dueDate" required><br>
+
+      <label for="dueTime">Due Time:</label>
+      <input type="time" id="dueTime" name="dueTime" required><br>
+
+      <label for="maxPoints">Maximum Points:</label>
+      <input type="number" id="maxPoints" name="maxPoints" required><br>
+      <span class="error-message" id="maxPointsError"></span><br>
+
+      <label for="file">Upload File:</label>
+      <input type="file" id="file" name="file"><br><br>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <div id="successMessage" class="success-message" style="display: none;">
+    Assignment submitted successfully!
+    <style>
+      #successMessage {
+        size: normal;
+        transition: 500px ease;
+
+      }
+    </style>
+  </div>
+
+  <script>
+    document.getElementById('createAssignmentBtn').addEventListener('click', function() {
+      document.getElementById('assignmentDetails').style.display = 'block';
+      document.getElementById('successMessage').style.display = 'none'; // Hide success message on form reveal
+      clearForm(); // Clear form fields on reveal
+    });
+
+    function clearForm() {
+      document.getElementById('assignmentForm').reset(); // Reset form fields
+      clearErrorMessages(); // Clear error messages
+    }
+
+    function clearErrorMessages() {
+      const errorMessages = document.getElementsByClassName('error-message');
+      Array.from(errorMessages).forEach(message => message.textContent = '');
+    }
+
+    document.getElementById('assignmentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Validation logic
+      // ...
+
+      // Assuming the validation is successful for demonstration
+      // Clear the form fields after successful submission
+      clearForm();
+      document.getElementById('successMessage').style.display = 'block'; // Show success message
+    });
+  </script>
+</body>
+</html>
