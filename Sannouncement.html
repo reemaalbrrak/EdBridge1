@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Announcements</title>
+  <link rel="stylesheet" type="text/css" href="Sannouncement.css">
+</head>
+<body>
+  <header>
+    <h1>Announcements</h1>
+    <nav>
+      <ul>
+        <li><a href="SMainPage.html">Home</a></li>
+        <li><a href="CoursePage.html">Courses</a></li>
+        <li><a href="Sannouncement.html">Announcements</a></li>
+        <li><a href="Help.html">Help</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <class="announcements">
+<h2>Upcoming Announcements</h2>
+<select id="course-select">
+<option value="all">All Courses</option>
+<option value="Course 1">Course 1</option>
+<option value="Course 2">Course 2</option>
+<option value="Course 3">Course 3</option>
+</select>
+<table>
+<thead>
+<tr>
+<th>Course</th>
+<th>Date</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody id="announcement-table">
+<tr>
+<td>Course 1</td>
+<td>January 1, 2022</td>
+<td>New homework assignment </td>
+</tr>
+<tr>
+<td>Course 2</td>
+<td>February 15, 2022</td>
+<td>New lab report </td>
+</tr>
+<tr>
+<td>Course 3</td>
+<td>March 31, 2022</td>
+<td>New assignment </td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="notifications">
+<h2>Notifications</h2>
+<form>
+<label for="notification-type">Select notification type:</label>
+<select id="notification-type">
+<option value="email">Email</option>
+<option value="push">Push Notification</option>
+</select>
+<label for="frequency">Select notification frequency:</label>
+<select id="frequency">
+<option value="daily">Daily</option>
+<option value="weekly">Weekly</option>
+<option value="monthly">Monthly</option>
+</select>
+<button type="submit">Save</button>
+</form>
+</section>
+
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

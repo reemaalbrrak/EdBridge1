@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #524f69;
+    padding: 20px;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .announcements h2 {
+    margin-top: 0;
+  }
+  
+  #course-select {
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead th {
+    background-color: #524f69;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  tbody td {
+    padding: 10px;
+  }
+  
+  .notifications h2 {
+    margin-top: 0;
+  }
+  
+  form label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  button[type="submit"] {
+    margin-top: 10px;
+  }
+  
+  
+  

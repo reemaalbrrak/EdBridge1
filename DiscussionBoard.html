@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="DiscussionBoard.css">
+    <title>Discussion Board</title>
+    
+</head>
+<body>
+
+    <header>
+        <h1>Discussion Board</h1>
+    </header>
+
+    <main>
+        <img src="logo.png" alt="">
+        <h2>  </h2>
+ 
+        <div class="discussion-board" id="discussionBoard">
+            <!-- Messages will be dynamically added here using JavaScript -->
+        </div>
+
+        <textarea id="messageInput" placeholder="Type your message here..."></textarea>
+        <button onclick="postMessage()">Post</button>
+    </main>
+
+    <script>
+        function postMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const discussionBoard = document.getElementById('discussionBoard');
+
+            const message = messageInput.value.trim();
+            if (message !== '') {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message';
+                messageDiv.textContent = message;
+
+                discussionBoard.appendChild(messageDiv);
+
+                // Clear the input field
+                messageInput.value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Announcement</title>
+  <link rel="stylesheet" href="Tannouncement.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <button onclick="window.location.href='profile.html'">Profile</button>
+    <button onclick="window.location.href='TMainPage.html'">Home</button>
+    <button onclick="window.location.href='assignments.html'">Assignments</button>
+    <button onclick="window.location.href='exams.html'">Exams</button>
+    <button onclick="window.location.href='Tannouncement.html'">Announcements</button>
+    <button onclick="window.location.href='help.html'">Help</button>
+    <button onclick="window.location.href='logout.html'">Logout</button>
+  </div>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ads</title>
+  <link rel="stylesheet" href="ads.css">
+</head>
+<body>
+  <div class="ads-container">
+    <h1>Announcements</h1>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Course</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Important Exam Information</td>
+          <td>Course 1</td>
+          <td>Jan 1, 2022</td>
+          <td>
+            <button onclick="editAnnouncement(1)">Edit</button>
+            <button onclick="deleteAnnouncement(1)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Reminder</td>
+          <td>Course 2</td>
+          <td>Jan 2, 2022</td>
+          <td>
+            <button onclick="editAnnouncement(2)">Edit</button>
+            <button onclick="deleteAnnouncement(2)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>office Hours</td>
+          <td>Course 3</td>
+          <td>Jan 3, 2022</td>
+          <td>
+            <button onclick="editAnnouncement(3)">Edit</button>
+            <button onclick="deleteAnnouncement(3)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <script>scr="script.js"</script>
+    </table>
+    <div class="new-ad-form">
+      <h2>New Announcements</h2>
+      <form>
+        <label for="course">Select Course:</label>
+        <select id="course" name="course">
+          <option value="math">Course 1</option>
+          <option value="science">Course 2</option>
+          <option value="english">Course 3</option>
+        </select>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject">
+        <label for="content">Content:</label>
+        <textarea id="content" name="content"></textarea>
+        <button type="submit">Load Announcement</button>
+      </form>
+    </div>
+  </div>
+  
+</body>
+</html>
