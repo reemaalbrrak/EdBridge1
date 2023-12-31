@@ -19,10 +19,15 @@
     flex-direction: column;
     align-items: center;
   }
-  .logo img {
-    max-width: 80px; /* Adjust as needed */
-    margin-bottom: 20px;
-  }
+
+/* Styling for Sidebar Logo */
+.logo {
+  margin-bottom: 20px;
+}
+
+.logo img {
+  max-width: 100%; /* Make the logo responsive within its container */
+}
   
   .sidebar button {
     display: block;
