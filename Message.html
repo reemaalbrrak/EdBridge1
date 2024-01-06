@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>message </title>
+  <link rel="stylesheet" href="Message.css">
+  
+</head>
+<body>
+
+<div id="header">
+  <h1>message </h1>
+</div>
+
+<div id="search-container">
+  <input type="text" id="search-bar" placeholder="Search...">
+  
+  <button id="search-button" onclick="performSearch()">Search</button>
+</div>
+<div class="sidebar">
+  <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <button onclick="window.location.href='profile.html'">Profile</button>
+   
+    <button onclick="window.location.href='Help.html'">Help</button>
+    <button onclick="window.location.href='logout.html'">Logout</button>
+  </div>
+
+
+
+  
+  
+  <header>
+    <h1>Discussion Board</h1>
+</header>
+
+<main>
+    <img src="logo.png" alt="">
+    <h2>  </h2>
+
+    <div class="discussion-board" id="discussionBoard">
+        <!-- Messages will be dynamically added here using JavaScript -->
+    </div>
+
+    <textarea id="messageInput" placeholder="Type your message here..."></textarea>
+    <button onclick="postMessage()">Post</button>
+</main>
+
+<script>
+    function postMessage() {
+        const messageInput = document.getElementById('messageInput');
+        const discussionBoard = document.getElementById('discussionBoard');
+
+        const message = messageInput.value.trim();
+        if (message !== '') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            messageDiv.textContent = message;
+
+            discussionBoard.appendChild(messageDiv);
+
+            // Clear the input field
+            messageInput.value = '';
+        }
+    }
+</script>
+
+</body>
+</html>
