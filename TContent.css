@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  #header {
+    background-color: #756f8e;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    margin-left: 200px;
+  }
+
+  /* Styling for Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #524f69;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    overflow-y: auto;
+  }
+
+  /* Styling for Sidebar Logo */
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  .logo img {
+    max-width: 100%;
+  }
+
+  .sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #756f8e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .sidebar button:hover {
+    background-color: #9887a4;
+  }
+
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+    
+  }
+
+  .content button{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #756f8e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .upload-list {
+    margin-top: 20px;
+  }
+
+
+   /* Styles for uploaded items */
+   .uploaded-item {
+    cursor: pointer;
+    display: block;
+    margin-bottom: 15px;
+    padding: 8px;
+    text-decoration: none;
+    color: #524f69;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+
+  .uploaded-item:hover {
+    background-color: #eaeaea;
+  }
+  
+  /* Popup form styles */
+  #popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    max-width: 400px; /* Adjust the maximum width of the popup */
+    width: 100%; /* Ensures responsiveness */
+  }
+
+  /* Style for the form labels */
+  #popup label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: bold;
+    color:#524f69
+  }
+
+  /* Style for input fields */
+  #popup input[type="text"],
+  #popup textarea,
+  #popup input[type="file"],
+  #popup button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  /* Style for the Upload button within the popup */
+  #popup button {
+    background-color: #756f8e;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #popup button:hover {
+    background-color: #9887a4;
+  }

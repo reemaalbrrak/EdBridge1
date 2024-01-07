@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    font-size: 16px;
+}
+
+/* Styling for Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #524f69;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1; /* Ensure the sidebar is above other elements */
+    overflow-y: auto; /* Add a vertical scrollbar if the content overflows */
+  }
+  
+  /* Styling for Sidebar Logo */
+  .logo {
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    max-width: 100%; /* Make the logo responsive within its container */
+  }
+  
+  .sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #756f8e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar button:hover {
+    background-color: #9887a4;
+  }
+
+  .container {
+    margin-left: 250px; /* Adjusted margin for content area */
+    padding: 16px;
+  }
+
+  /* Course details styles */
+.course-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.course-details h1 {
+    margin-bottom: 20px;
+    color: #524f69; /* Dark pastel purple for header text */
+}
+
+.course-details h2 {
+    margin-bottom: 20px;
+    color: #524f69; /* Dark pastel purple for header text */
+}
+
+.instructor-details {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.save-btn, .enrolled-btn {
+    margin-top: 10px;
+    display: block;
+    width: 200px; /* Fixed width for buttons */
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #756f8e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.save-btn:hover {
+    background-color: #9887a4;
+}
+
+.enrolled-btn:hover {
+    background-color: #9887a4;
+}
+

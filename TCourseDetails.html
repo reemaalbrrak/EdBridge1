@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Page</title>
+    <link rel="stylesheet" href="TCourseDetails.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <button onclick="window.location.href='profile.html'">Profile</button>
+        <button onclick="window.location.href='TMainPage.html'">Home</button>
+        <button onclick="window.location.href='TContent.html'">Content</button>
+        <button onclick="window.location.href='Sessions.html'">Sessions</button>
+        <button onclick="window.location.href='AssignmentTA.html'">Assignments</button>
+        <button onclick="window.location.href='exams.html'">Exams</button>
+        <button onclick="window.location.href='calendar.html'">Calender</button>
+        <button onclick="window.location.href='Help.html'">Help</button>
+        <button onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <div class="container">
+        <div class="course-details">
+            <h1 id="courseTitle" contenteditable>Course Title</h1>
+            <h2>Discriction</h2>   
+            <p><span id="courseDescription" contenteditable>Course description goes here...</span></p>
+            <h2>Objectives</h2>
+            <ul id="objectives" contenteditable>
+                <li>Objective 1</li>
+                <li>Objective 2</li>
+                <!-- Add more objectives as needed -->
+            </ul>
+            <h2>Targeted Audience</h2>   
+            <p><span id="targetAudience" contenteditable>Who the course is for...</span></p>
+            <h2>Pre-Requirements</h2>
+            <p><span id="preRequirements" contenteditable>Any prerequisites...</span></p>
+            <h2>Instructor</h2>
+            <p>Name: <span id="instructor-details" contenteditable>Instructor Name</span></p>
+            <p>Contact Information: <span id="instructor-details" contenteditable>Instructor Name</span></p>
+            </div>
+            <button onclick="saveChanges()" class="save-btn">Save Changes</button>
+            <a href="enrolled-students.html" class="enrolled-btn">Enrolled Students</a>
+        </div>
+    </div>
+
+    <!-- Include your JavaScript for functionality -->
+    <script>function saveChanges() {
+        const courseTitle = document.getElementById('courseTitle').innerText;
+        const courseDescription = document.getElementById('courseDescription').innerText;
+        const objectives = Array.from(document.getElementById('objectives').children).map(li => li.innerText);
+        const targetAudience = document.getElementById('targetAudience').innerText;
+        const preRequirements = document.getElementById('preRequirements').innerText;
+    
+        // You can retrieve and save the instructor details similarly
+    
+        // Use these values to save to a database or perform other actions
+        // For now, let's log the values
+        console.log('Course Title:', courseTitle);
+        console.log('Course Description:', courseDescription);
+        console.log('Objectives:', objectives);
+        console.log('Targeted Audience:', targetAudience);
+        console.log('Pre-Requirements:', preRequirements);
+    }
+    
+        </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Page</title>
+    <link rel="stylesheet" href="TContent.css">
+</head>
+<body>
+    <div id="header">
+        <h1>Content</h1>
+      </div>
+      
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <button onclick="window.location.href='profile.html'">Profile</button>
+        <button onclick="window.location.href='TMainPage.html'">Home</button>
+        <button onclick="window.location.href='TContent.html'">Content</button>
+        <button onclick="window.location.href='Sessions.html'">Sessions</button>
+        <button onclick="window.location.href='AssignmentTA.html'">Assignments</button>
+        <button onclick="window.location.href='exams.html'">Exams</button>
+        <button onclick="window.location.href='calendar.html'">Calender</button>
+        <button onclick="window.location.href='Help.html'">Help</button>
+        <button onclick="window.location.href='login.html'">Logout</button>
+    </div>
+
+    <div class="content">
+<!-- Button to trigger the popup -->
+<button onclick="showPopup()">Upload Content</button>
+
+<!-- Popup for uploading content -->
+<div id="popup">
+  <form id="uploadForm">
+    <label for="title">Title</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+    
+    <label for="file">Upload File</label><br>
+    <input type="file" id="file" name="file" accept="*/*" required><br><br>
+    
+    <button type="button" onclick="uploadContent()">Upload</button>
+  </form>
+</div>
+
+<!-- Uploaded content will be displayed here -->
+<div class="upload-list" id="uploadList">
+    <div class="uploaded-item" onclick="openPredefinedFile('file1.txt')">Chapter 1</div>
+    <div class="uploaded-item" onclick="openPredefinedFile('file2.txt')">Chapter 2</div>
+    <div class="uploaded-item" onclick="openPredefinedFile('file2.txt')">Chapter 3</div>
+</div>
+
+</div>
+
+
+
+<script>
+
+      // Function to show the popup
+      function showPopup() {
+        document.getElementById('popup').style.display = 'block';
+      }
+
+            //////////////////////////////////
+
+      // Store uploaded file contents
+      const uploadedFiles = {};
+
+      // Function to handle the file upload and display the content
+      function uploadContent() {
+        const title = document.getElementById('title').value;
+        const file = document.getElementById('file').files[0];
+
+        // Store uploaded file content
+            if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        uploadedFiles[title] = {
+          content: event.target.result,
+          type: file.type
+        };
+        const uploadList = document.getElementById('uploadList');
+        const uploadedItem = document.createElement('a');
+        uploadedItem.classList.add('uploaded-item');
+        uploadedItem.textContent = title;
+        uploadedItem.href = URL.createObjectURL(file);
+        uploadedItem.setAttribute('download', title);
+        uploadList.appendChild(uploadedItem);
+      };
+      reader.readAsDataURL(file);
+    }
+
+
+    // Close the popup after uploading
+    document.getElementById('popup').style.display = 'none';
+
+    // Reset the form fields
+    document.getElementById('uploadForm').reset();
+    }
+
+
+  // Function to trigger download of predefined PDF file
+  function downloadPredefinedPDF(filename) {
+    const url = 'path/to/your/files/' + filename;
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+  }
+    </script>
+    
+
+</div>
+
+</body>
+</html>
