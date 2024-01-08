@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <link rel="stylesheet" href="enrollment.css">
+</head>
+
+<body>
+
+    <div class="course-container purple-bg">
+        <h2>Course 1: </h2>
+        <!-- Updated button class here -->
+    <button class="enroll-button" onclick="showStudents('math')">View Enrolled Students</button>
+
+        <div id="mathStudents" class="student-profile">
+            <h3>Enrolled Students</h3>
+            <ul>
+                <li>
+                    <span class="student-name white-text" onclick="showContact('shaden')">shaden</span>
+                    <div id="contactshaden" class="contact-info white-text">
+                        <p>Email: shaden123@gmail.com</p>
+                        <p>Phone: 966-456-7890</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="student-name white-text" onclick="showContact('reem')">reem</span>
+                    <div id="contactreem" class="contact-info white-text">
+                        <p>Email: reem456@gmail.com</p>
+                        <p>Phone: 966-654-3210</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="course-container purple-bg">
+        <h2>Course 2: </h2>
+       <!-- Updated button class here -->
+<button class="enroll-button" onclick="showStudents('data')">View Enrolled Students</button>
+
+        <div id="dataStudents" class="student-profile">
+            <h3>Enrolled Students</h3>
+            <ul>
+                <li>
+                    <span class="student-name white-text" onclick="showContact('remas')">remas</span>
+                    <div id="contactremas" class="contact-info white-text">
+                        <p>Email: remas67@gmail.com</p>
+                        <p>Phone: 966-123-4567</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="student-name white-text" onclick="showContact('remma')">remma</span>
+                    <div id="contactremma" class="contact-info white-text">
+                        <p>Email: remma78@gmail.com</p>
+                        <p>Phone: 966-887-6543</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="course-container purple-bg">
+        <h2>Course 3:</h2>
+        <!-- Updated button class here -->
+<button class="enroll-button" onclick="showStudents('op')">View Enrolled Students</button>
+
+        <div id="opStudents" class="student-profile">
+            <h3>Enrolled Students</h3>
+            <ul>
+                <li>
+                    <span class="student-name white-text" onclick="showContact('nora')">nora</span>
+                    <div id="contactnora" class="contact-info white-text">
+                        <p>Email: nora89@gmail.com</p>
+                        <p>Phone: 966-456-7890</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="student-name white-text" onclick="showContact('leen')">leen</span>
+                    <div id="contactleen" class="contact-info white-text">
+                        <p>Email: leen99@gmail.com</p>
+                        <p>Phone: 966-987-6543</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- more -->
+    <script>
+        function showStudents(course) {
+    var studentsContainer = document.getElementById(course + 'Students');
+    studentsContainer.style.display = (studentsContainer.style.display === 'block') ? 'none' : 'block';
+}
+
+function showContact(student) {
+    var contactInfo = document.getElementById('contact' + student.replace(' ', ''));
+    contactInfo.style.display = (contactInfo.style.display === 'block') ? 'none' : 'block';
+}
+</script>
+</body>
+</html>

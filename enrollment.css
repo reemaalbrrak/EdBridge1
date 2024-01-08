@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.course-container {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.purple-bg {
+    background-color: #524f69;
+    color: rgb(223, 208, 208);
+}
+
+.white-bg {
+    background-color: #FFFFFF;
+    color: #524f69;
+}
+
+.student-profile {
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.student-name {
+    cursor: pointer;
+}
+
+.contact-info {
+    display: none;
+}
+
+.purple-text {
+    color: #524f69;
+}
+
+.white-text {
+    color: rgb(223, 208, 208);
+}
+
+/* Updated button style */
+.enroll-button {
+    background: linear-gradient(to right, #524f69, #847b99);
+    color: rgb(223, 208, 208);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.enroll-button:hover {
+    background: linear-gradient(to right, #847b99, #524f69);
+}
