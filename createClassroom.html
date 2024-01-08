@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Classroom</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #cec9cf;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      max-width: 300px;
+      width: 100%;
+      padding: 20px;
+      background-color: #b5afb9;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-size: 1.2em;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #54516ec2;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #615e76c2;
+    }
+
+    .top-center {
+      margin-top: 20px;
+      max-width: 150px;
+      height: auto;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <img src="/logo.png" alt="Logo" class="top-center" />
+  <h1>Create Classroom</h1>
+  <form id="classroomForm">
+    <label for="classroomType">Classroom Type:</label><br />
+    <select id="classroomType" name="classroomType">
+      <option value="public">Public</option>
+      <option value="private">Private</option>
+    </select><br />
+    <input type="submit" value="Submit" />
+  </form>
+  <script>
+    document.getElementById('classroomForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var classroomType = document.getElementById('classroomType').value;
+
+      if (classroomType === 'public') {
+        window.location.href = 'createPublicClassroom.html';
+      } else if (classroomType === 'private') {
+        window.location.href = 'createPrivateClassroom.html';
+      } else {
+        alert('Please select a valid classroom type.');
+      }
+    });
+  </script>
+</body>
+</html>

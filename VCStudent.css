@@ -1,0 +1,177 @@
+
+header {
+    background-color: #524f69;
+    color: #cec9cf;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    position: fixed; /* يثبت العنصر في الأعلى */
+    top: 0;
+    display: flex;
+    align-items: center;
+    
+}
+.logo{
+    text-align: left;
+    width: 80px;
+    padding: 0;
+    
+
+ }
+ .logo img {
+    max-width: 100%; /* لضمان تناسب الصورة داخل الشعار */
+}
+h1 {
+    margin: 0 auto; /* توسيط العنوان أفقيًا */
+}
+
+
+body {
+    background-color: #b5afb9;
+    display: flex;
+    flex-direction: column; /* تحديد الاتجاه ليكون أفقيًا */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start; /* لجعل العنوان فوق الفيديو والشات */
+    width: 100%;
+    
+}
+
+
+.video-container {
+    width: 80%; /* زيادة عرض عنصر الفيديو ليشغل مساحة أكبر في الوسط */
+    padding: 20px; /* إضافة بعض التباعد حول عنصر الفيديو */
+    
+}
+
+video {
+    width: 100%;
+    height: auto;
+    
+}
+video#teacher-video {
+    width: 100%; /* Reduced width for teacher's video */
+    height: auto;
+    
+}
+
+
+.chat-box {
+    width: 20%; /* تقليل عرض عنصر الشات ليكون على الجهة اليمنى */
+    padding: 20px;
+    border-left: 1px solid #ccc;
+    background-color: #cec9cf;
+    
+
+}
+.chat-messages {
+    height: 377px;
+    overflow-y: scroll;
+    background-color: #ffffff;
+}
+
+input, button {
+    width: 100%;
+    /* margin-top: 10px; */
+    top: 20px;
+}
+
+button {
+    background-color: #524f69;
+    color: #fff;
+    border: none;
+    padding: 5px; /* Smaller padding */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444444;   
+
+}
+
+.emoji-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.emoji-buttons button {
+    font-size: 12px; /* Smaller font size */
+    cursor: pointer;
+    margin: 6px;
+}
+
+footer {
+    background-color: #FFF;
+    color: #4c7fb7;
+    padding: 10px;
+    position: fixed; /* يثبت العنصر في الأسفل */
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.sub-content-box{
+    flex-direction: row;
+    display: inline;
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    left: 210px;
+    margin-bottom: 21px;
+    background-color: #524f69;
+    border-radius: 1px;
+}
+
+.sub-content-box :hover {
+    background-color: #060606;
+    border-radius: 8px;
+}
+
+#askQuestionButton, #raiseHandButton {
+    font-size: 15px;
+    padding: 4px;
+    margin: 1px;
+}
+
+#raiseHandButton.active {
+    background-color: rgb(146, 145, 145); /* لون زر عندما يكون نشطًا */
+}
+
+#questionContainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: none;
+}
+
+.RaiseHand-Q-button{
+    background-color: #ccc;
+    color: #fff;
+    cursor: pointer;
+    transform: translateX(-150%);
+    flex-direction: row;
+    display: inline;
+    display: flex;
+    position: absolute;
+    bottom: 7px;
+    left: 348px;
+    margin-bottom: 43px;
+    
+    
+}

@@ -1,0 +1,46 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #cec9cf;
+    text-align: center;
+  }
+  
+  header {
+    background-color: #524f69;
+    color: #c5b8b8;
+    padding: 20px;
+    font-size: 24px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #cec9cf;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .lecture-card {
+    background-color: #b5afb9;
+    border-radius: 8px;
+    margin: 15px 0;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .join-button, .schedule-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #524f69c2;
+    color: #cec9cf;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .join-button:hover, .schedule-button:hover {
+    background-color: #524f69;
+  }
+  

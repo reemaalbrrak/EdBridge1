@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EduBridge Virtual Classroom</title>
+    <link rel="stylesheet" type="text/css" href="VCStudent.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="logo66.png" alt="EduBridgeimage" class="small-image" />
+      </div>
+      <h1>Virtual Class</h1>
+    </header>
+
+    <div>
+      <video id="video" autoplay></video>
+      <div class="sub-content-box">
+        <!-- زر تشغيل / إيقاف الكاميرا -->
+        <button id="toggleVideo" class="icon-button">
+          <span id="videoIcon" class="fas fa-video-slash;"></span>
+          <!-- بداية مغلقة -->
+        </button>
+        <!-- زر تشغيل / إيقاف الميكروفون -->
+        <button id="toggleAudio" class="icon-button">
+          <span id="audioIcon" class="fas fa-microphone-slash"></span>
+          <!-- بداية مغلقة -->
+        </button>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="chat-box">
+        <div class="chat-messages">
+          <!-- Chat messages will be displayed here -->
+        </div>
+        <div class="emoji-buttons">
+          <button onclick="insertEmoji('👍')">👍</button>
+          <button onclick="insertEmoji('👎')">👎</button>
+          <button onclick="insertEmoji('😃')">😃</button>
+          <button onclick="insertEmoji('😢')">😢</button>
+          <button onclick="insertEmoji('❤️')">❤️</button>
+          <!-- Add more emoji buttons as needed -->
+        </div>
+        <input
+        type="text"
+        id="message"
+        placeholder="Type your message..."
+        onkeydown="if (event.key === 'Enter') sendMessage(event)"
+      />
+      <button onclick="sendMessage()">Send</button>     
+      </div>
+      <div class="video-container">
+        <video id="teacher-video" controls autoplay></video>
+      </div>
+    </div>
+
+    <div class="RaiseHand-Q-button">
+      <button id="askQuestionButton">Q</button>
+      <button id="raiseHandButton" onclick="toggleRaiseHand()">
+        <i class="fas fa-hand-paper"></i>
+      </button>
+      <div id="questionContainer">
+        <!-- Display questions here -->
+      </div>
+    </div>
+
+    <script>
+      // Simulate an array to store chat messages
+      let chatMessages = [];
+
+      function displayChatMessages() {
+        const chatMessagesDiv = document.querySelector(".chat-messages");
+        chatMessagesDiv.innerHTML = "";
+        chatMessages.forEach((message) => {
+          chatMessagesDiv.innerHTML += `<p>${message}</p>`;
+        });
+      }
+
+      function sendMessage(event) {
+        if (event) {
+          event.preventDefault(); // Prevent the default form submission when Enter is pressed.
+        }
+        const messageInput = document.getElementById("message");
+        const message = messageInput.value;
+        if (message.trim() !== "") {
+          chatMessages.push(message);
+          messageInput.value = "";
+          displayChatMessages();
+        }
+      }
+
+      function insertEmoji(emoji) {
+        const messageInput = document.getElementById("message");
+        messageInput.value += emoji;
+      }
+
+      // Periodically update chat messages (simulating real-time)
+      setInterval(() => {
+        displayChatMessages();
+      }, 1000);
+    </script>
+    <script>
+      const videoElement = document.getElementById("video");
+      const videoIcon = document.getElementById("videoIcon");
+      const audioIcon = document.getElementById("audioIcon");
+      let stream = null;
+      let videoEnabled = false;
+      let audioEnabled = false;
+
+      // Function to toggle the video stream
+      function toggleVideo() {
+        if (videoEnabled) {
+          stopVideo();
+        } else {
+          startVideo();
+        }
+        videoEnabled = !videoEnabled;
+        updateVideoIcon();
+      }
+
+      // Function to toggle the audio stream
+      function toggleAudio() {
+        if (audioEnabled) {
+          stopAudio();
+        } else {
+          startAudio();
+        }
+        audioEnabled = !audioEnabled;
+        updateAudioIcon();
+      }
+
+      // Function to start the video stream
+      function startVideo() {
+        navigator.mediaDevices
+          .getUserMedia({ video: true, audio: audioEnabled })
+          .then(function (mediaStream) {
+            stream = mediaStream;
+            videoElement.srcObject = mediaStream;
+          })
+          .catch(function (error) {
+            console.error("Error accessing video:", error);
+          });
+      }
+
+      // Function to stop the video stream
+      function stopVideo() {
+        if (stream) {
+          stream.getVideoTracks()[0].stop();
+          videoElement.srcObject = null;
+        }
+      }
+
+      // Function to start the audio stream
+      function startAudio() {
+        navigator.mediaDevices
+          .getUserMedia({ video: videoEnabled, audio: true })
+          .then(function (mediaStream) {
+            stream = mediaStream;
+          })
+          .catch(function (error) {
+            console.error("Error accessing audio:", error);
+          });
+      }
+
+      // Function to stop the audio stream
+      function stopAudio() {
+        if (stream) {
+          stream.getAudioTracks()[0].stop();
+        }
+      }
+
+      function updateVideoIcon() {
+        if (videoEnabled) {
+          videoIcon.classList.remove("fa-video-slash");
+          videoIcon.classList.add("fa-video");
+        } else {
+          videoIcon.classList.remove("fa-video");
+          videoIcon.classList.add("fa-video-slash");
+        }
+      }
+
+      function updateAudioIcon() {
+        if (audioEnabled) {
+          audioIcon.classList.remove("fa-microphone-slash");
+          audioIcon.classList.add("fa-microphone");
+        } else {
+          audioIcon.classList.remove("fa-microphone");
+          audioIcon.classList.add("fa-microphone-slash");
+        }
+      }
+
+      // Disable camera and microphone by default
+      videoEnabled = false;
+      audioEnabled = false;
+      updateVideoIcon();
+      updateAudioIcon();
+
+      document
+        .getElementById("toggleVideo")
+        .addEventListener("click", toggleVideo);
+      document
+        .getElementById("toggleAudio")
+        .addEventListener("click", toggleAudio);
+    </script>
+
+    <script>
+      const askQuestionButton = document.getElementById("askQuestionButton");
+      const raiseHandButton = document.getElementById("raiseHandButton");
+      const questionContainer = document.getElementById("questionContainer");
+      const questions = [];
+      let isRaised = false; // متغير لتتبع حالة الزر
+
+      // Handle the "Q" button click event
+      askQuestionButton.addEventListener("click", function () {
+        const question = prompt("Ask your question:");
+        if (question) {
+          questions.push(question);
+          displayQuestions();
+        }
+      });
+
+      // Function to display the list of questions
+      function displayQuestions() {
+        questionContainer.style.display = "block";
+        questionContainer.innerHTML = "";
+        questions.forEach((question, index) => {
+          const questionDiv = document.createElement("div");
+          questionDiv.textContent = `Question ${index + 1}: ${question}`;
+          questionContainer.appendChild(questionDiv);
+        });
+      }
+
+      // Function to toggle the raise hand button's state
+      function toggleRaiseHand() {
+        isRaised = !isRaised; // تغيير حالة الزر
+        if (isRaised) {
+          raiseHandButton.classList.add("active"); // إضافة الكلاس عندما يتم رفع اليد
+        } else {
+          raiseHandButton.classList.remove("active"); // إزالة الكلاس عندما تنخفض اليد
+        }
+      }
+    </script>
+  </body>
+</html>
