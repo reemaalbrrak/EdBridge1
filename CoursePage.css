@@ -4,6 +4,43 @@
     padding: 0;
     box-sizing: border-box;
   }
+  #search-container {
+    margin-left: 200px; /* Adjust based on the sidebar width */
+    padding: 20px;
+    
+  }
+  
+  #search-bar {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  #course-search {
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 70%;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #search-button,
+  #sort-button {
+    padding: 8px;
+    font-size: 14px;
+    background-color: #756f8e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  #search-button:hover,
+  #sort-button:hover {
+    background-color: #9887a4; /* New background color on hover */
+  }
   
   /* Styling for Sidebar */
   .sidebar {
