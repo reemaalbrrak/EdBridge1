@@ -132,19 +132,24 @@
     background-color: #9887a4; /* Lighter shade on hover */
   }
   
-  .create-course-btn {
-    padding: 10px 20px;
-    background-color: #524f69;
+  .create-course-btn , .enrolled-btn {
+    margin-top: 10px;
+    display: block;
+    width: 200px; /* Fixed width for buttons */
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #756f8e;
     color: #fff;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    text-decoration: none;
     transition: background-color 0.3s ease;
-    margin-top: auto;
+    text-align: center;
   }
   
-  .create-course-btn:hover {
-    background-color: #756f8e; /* Darker shade on hover */
+  .create-course-btn:hover, .enrolled-btn:hover {
+    background-color: #9887a4; /* Darker shade on hover */
   }
 
 /* Add your existing CSS styles here */
