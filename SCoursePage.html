@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courses Page</title>
+  <link rel="stylesheet" href="CoursePage.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <button onclick="window.location.href='profile.html'">Profile</button>
+    <button onclick="window.location.href='SMainPage.html'">Home</button>
+    <button onclick="window.location.href='assignments.html'">Assignments</button>
+    <button onclick="window.location.href='exams.html'">Exams</button>
+    <button onclick="window.location.href='help.html'">Help</button>
+    <button onclick="window.location.href='logout.html'">Logout</button>
+  </div>
+  
+  <div class="content">
+    <h1>My Courses</h1>
+    <div class="search-bar">
+      <input type="text" id="course-search" placeholder="Search courses...">
+      <button id="search-button" onclick="searchCourses()">Search</button>
+      <button id="sort-button" onclick="sortCourses()">Sort A-Z</button>
+    </div>
+    <ul class="course-list">
+      <li>
+        <a href="SCourseDetails.html">
+          <span>Course 1</span>
+        </a>
+      </li>
+      <li>
+        <a href="TCourseDetails.html">
+          <span>Course 2</span>
+        </a>
+        <div class="course-actions">
+ </div>
+      </li>
+      <!-- Add more courses as needed -->
+    </ul>
+    </div>
+
+  <script>
+
+    function searchCourses() {
+      const searchTerm = document.getElementById('course-search').value.toLowerCase();
+      const filteredCourses = courses.filter(course =>
+        course.name.toLowerCase().includes(searchTerm)
+      );
+      displayCourses(filteredCourses);
+    }
+
+    function sortCourses() {
+      const sortedCourses = [...courses].sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+      displayCourses(sortedCourses);
+    }
+
+    // Initial display of courses
+    displayCourses(courses);
+  </script>
+</body>
+</html>
