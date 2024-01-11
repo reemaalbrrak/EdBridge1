@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance Records</title>
+  <link rel="stylesheet" href="Sattendance.css">
+</head>
+<body>
+  <h1>Attendance Records</h1>
+  
+  <!-- Attendance record for each class session -->
+  <div>
+    <h2>Class session 1</h2>
+    <p>Date: January 1, 2024</p>
+    <p>Time: 9:00 AM - 11:00 AM</p>
+    <p>Attendance: Present</p>
+    <button onclick="showDetails('session1')">Show Details</button>
+  </div>
+  
+  <div>
+    <h2>Class session 2</h2>
+    <p>Date: January 2, 2024</p>
+    <p>Time: 10:00 AM - 12:00 PM</p>
+    <p>Attendance: Absent</p>
+    <button onclick="showDetails('session2')">Show Details</button>
+  </div>
+  
+  <div>
+    <h2>Class session 3</h2>
+    <p>Date: January 3, 2024</p>
+    <p>Time: 9:30 AM - 11:30 AM</p>
+    <p>Attendance: Present</p>
+    <button onclick="showDetails('session3')">Show Details</button>
+  </div>
+  
+  <script>
+    function showDetails(session) {
+      // Get the attendance record based on session
+      var attendanceRecord;
+      if (session === 'session1') {
+        attendanceRecord = "Present for class session 1";
+      } else if (session === 'session2') {
+        attendanceRecord = "Absent for class session 2";
+      } else if (session === 'session3') {
+        attendanceRecord = "Present for class session 3";
+      }
+      
+      // Display the attendance record
+      alert(attendanceRecord);
+    }
+  </script>
+</body>
+</html>
