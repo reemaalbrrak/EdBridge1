@@ -1,6 +1,9 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Change to a lighter background color */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   }
   
   #header {
@@ -8,18 +11,18 @@ body {
     padding: 10px;
     text-align: center;
     color: #fff;
+    margin-left: 200px; /* Adjusted margin to align with the content */
   }
   
   #search-container {
-    margin-top: px;
-    text-align: center;
-    
+    margin-left: 200px; /* Adjusted margin to align with the content */
+    padding: 20px;
     color: #fff;
   }
   
   #search-bar {
     padding: 8px;
-    width: 60%;
+    width: 80%;
     font-size: 14px;
     
   }
@@ -27,13 +30,19 @@ body {
   #search-button {
     padding: 8px;
     font-size: 14px;
-     background-color: #9887a4 
-    ;
-  
+     background-color: #9887a4;
+     color: #fff;
+     border: none;
+     cursor: pointer;
+     border-radius: 4px;
+     transition: background-color 0.3s ease;
   }
-  .search   button:hover {
-    background-color: #62506f;}
-  
+
+  #search-button:hover {
+    background-color: #62506f;
+  }
+
+    
   * {
   margin: 0;
   padding: 0;
@@ -81,31 +90,7 @@ body {
   .sidebar button:hover {
     background-color: #62506f;
   }
-  
-  /* Styling for Section Containers */
-  .section-container {
-    clear: both;
-    margin-top: 20px;
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: space-between; /* Add space between items */
-  }
-  
-  .chart-container {
-    width: 30%;
-    margin: 20px;
-    float: left;
-    background-color: #fff; /* Set a background color to make sure it's visible */
-    border-radius: 5px;
-    padding: 10px;
-    box-sizing: border-box; /* Include padding and border in the total width */
-    position: relative;
-  }
-  
-  .chart-container canvas {
-    width: 100%; /* Make the canvas responsive within its container */
-    height: auto;
-  }
+
   
   .chart-container p {
     text-align: center;
@@ -113,104 +98,43 @@ body {
     color: #333;
   }
   
-  .section-box {
-    width: calc(30% - 20px); /* Calculate width to fit three boxes beside each other with some margin */
-    margin: 10px;
-    background-color: #f0f0f0;
-    padding: 10px;
-    border-radius: 5px;
-    box-sizing: border-box; /* Include padding and border in the total width */
-  }
-  
-  /* Styling for Content Area */
-  .content {
-    margin-left: 250px; /* Adjust based on the sidebar width */
-    padding: 20px;
-  }
-  
-  #content {
-    margin-left: 200px; /* Adjusted margin for content area */
-    padding: 16px;
-  }
-  
-  .chart-container {
-    width: 30%;
-    margin: 20px;
-    float: left;
-    background-color: #fff; /* Set a background color to make sure it's visible */
-    border-radius: 5px;
-    padding: 10px;
-    box-sizing: border-box; /* Include padding and border in the total width */
-    position: relative;
-  }
-  
-  /* Styling for Content Area */
-  .content {
-    margin-left: 250px; /* Adjust based on the sidebar width */
-    padding: 20px;
-  }
-  
-  #content {
-    margin-left: 200px; /* Adjusted margin for content area */
-    padding: 16px;
-  }
-  
-  .chart-container {
-    width: 30%;
-    margin: 20px;
-    float: left;
-    background-color: #fff; /* Set a background color to make sure it's visible */
-    border-radius: 5px;
-    padding: 10px;
-    box-sizing: border-box; /* Include padding and border in the total width */
-    position: relative;
-  }
-  
-  
-  
-  
-  
-  .button-container button:hover {
-    background-color: #9887a4;
-  }
-  
-  body {
-             
-    font-family: Arial, sans-serif;
-    background-color: #756f8e;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
   
   header {
-    background-color:  #9887a4;
-    color: white;
+    background-color: #9887a4;
+    padding: 10px;
     text-align: center;
-    padding: 1em;
+    color: #fff;
+    margin-left: 200px; /* Adjusted margin to align with the content */
   }
   
   main {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+    width: 60%; /* Adjusted width for the main content */
+    margin: 20px auto; /* Center the main content */
+    background-color: hsla(280, 19%, 81%, 0.125); /* Update main content background color */
+    margin-bottom: 10px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Increased border-radius for a softer look */
+    margin-left: 300px
   }
   
-  h2 {
-    color: #333;
-  }
   
   textarea {
     width: 100%;
     margin-bottom: 10px;
+
   }
   
   .discussion-board {
-    border: 2px solid #9887a4;
-    padding: 20px;
+    width: 100%;
+    border: 2px solid #fff;
+    padding: 30px;
     margin-bottom: 20px;
+    background-color: #fff;
+    
   }
   
   .message {
@@ -220,11 +144,14 @@ body {
   }
   
   button {
-    background-color: #756f8e;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+    padding: 8px;
+    font-size: 14px;
+     background-color: #9887a4;
+     color: #fff;
+     border: none;
+     cursor: pointer;
+     border-radius: 4px;
+     transition: background-color 0.3s ease;
   }
   
   button:hover {
