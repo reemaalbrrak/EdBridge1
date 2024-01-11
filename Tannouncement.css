@@ -1,159 +1,177 @@
 /* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Styling for Sidebar */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100%;
-    background-color: #524f69;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .logo img {
-    max-width: 80px; /* Adjust as needed */
-    margin-bottom: 20px;
-  }
-  
-  .sidebar button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #756f8e; /* Darker shade of purple */
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .sidebar button:hover {
-    background-color: #9887a4; /* Lighter shade on hover */
-  }
-  
-  /* Styling for Content Area */
-  .content {
-    margin-left: 220px; /* Adjust based on the sidebar width */
-    padding: 20px;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-    color: #524f69; /* Dark pastel purple for header text */
-  }
-  .ads-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #3e8e41;
-  }
-  
-  .new-ad-form {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-  }
-  
-  .new-ad-form h2 {
-    margin-top: 0;
-  }
-  
-  .new-ad-form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  
-  .new-ad-form select,.new-ad-form input[type="text"],.new-ad-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .new-ad-form button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styling for Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #524f69;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1; /* Ensure the sidebar is above other elements */
+  overflow-y: auto; /* Add a vertical scrollbar if the content overflows */
+}
+
+/* Styling for Sidebar Logo */
+.logo {
+  margin-bottom: 20px;
+}
+
+.logo img {
+  max-width: 100%; /* Make the logo responsive within its container */
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #756f8e;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #9887a4;
+}
+
+/* Styling for Content Area */
+
+.main{
+  margin-left: 210px; /* Adjust based on the sidebar width */
+  padding: 20px;
+}
+#main{
+  margin-left: 200px; /* Adjusted margin for content area */
+  padding: 16px;
+}
+
+h1 {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #524f69; /* Dark pastel purple for header text */
+}
+
+.ads-container,
+table,
+.new-ad-form {
+  width: 100%; /* Set the width to 100% for responsiveness */
+  max-width: 800px; /* Maximum width for better readability on larger screens */
+  margin: 10px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+button {
+  padding: 8px 15px; /* Adjust size */
+  background-color: #756f8e; /* Darker shade of purple */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #9887a4; /* Lighter shade on hover */
+}
+
+.new-ad-form {
+  width: 800px;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.new-ad-form h2 {
+  margin-bottom: 20px;
+  color: #524f69; /* Dark pastel purple for header text */
+}
+
+.new-ad-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.new-ad-form select,
+.new-ad-form input[type="text"],
+.new-ad-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.new-ad-form button[type="submit"] {
+  padding: 8px 15px; /* Adjust size */
+  background-color: #756f8e; /* Darker shade of purple */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.new-ad-form button[type="submit"]:hover {
+  background-color: #9887a4;
+}
   
   .new-ad-form button[type="submit"]:hover {
     background-color: #3e8e41;
