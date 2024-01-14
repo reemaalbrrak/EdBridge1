@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ExamStudent.css">
+  <img src="logo.png" alt="Logo"width="170px"alt="Logo">
+</head>
+<body>
+  <main>
+    <div class="exam-info">
+      <h2>Exam Information</h2>
+      <p><strong>Subject:</strong> Java</p>
+      <p><strong>Date:</strong> January 19, 2024</p>
+      <p><strong>Duration:</strong> 60 minutes</p>
+    </div>
+
+    <button class="open-exam-button" onclick="showExamDialog()">Open Exam</button>
+
+    
+    <div class="overlay" id="overlay" onclick="hideExamDialog()"></div>
+    <div class="exam-dialog" id="examDialog">
+      <h2>Java Exam</h2>
+      <p><strong>Date:</strong> January 19, 2024</p>
+      <p><strong>Duration:</strong> 60 minutes</p>
+
+      <div class="questions">
+        <div class="question">
+          <p><strong>1. What is the benifit of For loop?</strong></p>
+          <ul class="options">
+            <li><input type="radio" name="q1" value="paris"> Reduce the code lines</li>
+            <li><input type="radio" name="q1" value="london"> Make the code easier to read</li>
+            <li><input type="radio" name="q1" value="berlin"> First and second choice</li>
+            <li><input type="radio" name="q1" value="madrid"> Not all of the above</li>
+          </ul>
+        </div>
+
+        <div class="question">
+          <p><strong>2. Arrays are objects.</strong></p>
+          <ul class="options">
+            <li><input type="radio" name="q2" value="true"> True</li>
+            <li><input type="radio" name="q2" value="false"> False</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="timer" id="timer">Time Remaining: 60:00</div>
+
+      <button class="submit-button" onclick="submitExam()">Submit Exam</button>
+    </div>
+  </main>
+
+  <script>
+    function showExamDialog() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('examDialog').style.display = 'block';
+      startTimer(3600); // 60 minutes converted to seconds
+    }
+
+    function hideExamDialog() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('examDialog').style.display = 'none';
+    }
+
+    function startTimer(durationInSeconds) {
+      let timer = durationInSeconds;
+      const intervalId = setInterval(function () {
+        const minutes = Math.floor(timer / 60);
+        const seconds = timer % 60;
+        const timerElement = document.getElementById('timer');
+        timerElement.textContent = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+        if (--timer < 0) {
+          clearInterval(intervalId);
+          alert('Time is up!'); // Placeholder, replace with actual handling
+          hideExamDialog(); // Close the dialog after time is up
+        }
+      }, 1000);
+    }
+
+    function submitExam() {
+
+      alert('Exam submitted!'); 
+      hideExamDialog(); 
+    }
+  </script>
+</body>
+</html>

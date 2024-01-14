@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teacher Dashboard - Quizzes/Exams</title>
+  <link rel="stylesheet" href="AssignmentTA.css">
+   <img src="logo.png" alt="Logo"width="170px"alt="Logo"position= '90px'>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      .content {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+      }
+      button, .add-question-btn, .submit-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button, .submit-button {
+        background-color: #756f8e;
+        margin-left: 20px;
+        color: #fff;
+      }
+
+      button:hover, .add-question-btn:hover, .submit-button:hover {
+        background-color: #9790b2;
+      }
+      label {
+        font-weight: bold;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .question-field {
+        margin-bottom: 20px;
+      }
+      input[type="text"], select, input[type="number"] {
+        width: calc(100% - 22px);
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .question-field input[type="text"] {
+        width: calc(100% - 40px);
+      }
+      .file-input {
+        display: block;
+        margin-top: 5px;
+      }
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      .upload-button {
+      display: block;
+      padding: 5px 10px;
+      background-color: #756f8e;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .upload-button:hover {
+      background-color: #645c7b;
+    }
+    </style>
+  <script>
+    function toggleQuizUploadSection() {
+      const quizUploadSection = document.getElementById('quizUploadSection');
+      quizUploadSection.style.display = quizUploadSection.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function validateForm() {
+      const requiredFields = ['title', 'timeLimit', 'attempts'];
+      const questions = document.querySelectorAll('.question-input');
+
+      for (const field of requiredFields) {
+        const value = document.getElementById(field).value.trim();
+        if (!value) {
+          document.getElementById('errorMessage').innerText = `Please fill in the ${field.replace(/^\w/, (c) => c.toUpperCase())} field`;
+          return false;
+        }
+      }
+
+      if (questions.length === 0) {
+        document.getElementById('errorMessage').innerText = 'Please add at least one question';
+        return false;
+      }
+
+      const isInvalidQuestion = Array.from(questions).some(question => question.value.trim() === '');
+      if (isInvalidQuestion) {
+        document.getElementById('errorMessage').innerText = 'Please complete all question fields';
+        return false;
+      }
+
+      return true;
+    }
+
+    function addQuestionField() {
+      const questionContainer = document.getElementById('questionContainer');
+      const questionType = document.getElementById('questionType').value;
+      
+      if (questionType === 'none') {
+        document.getElementById('errorMessage').innerText = 'Please select a question type';
+        return;
+      }
+
+      const questionField = document.createElement('div');
+      questionField.className = 'question-field';
+      
+      const label = document.createElement('label');
+      label.textContent = `Enter ${questionType} question:`;
+      label.className = 'select-label';
+      questionField.appendChild(label);
+
+      const inputField = document.createElement('input');
+      inputField.type = 'text';
+      inputField.placeholder = `Enter ${questionType} question here...`;
+      inputField.className = 'question-input';
+      
+      questionField.appendChild(inputField);
+
+      if (questionType === 'multipleChoice') {
+        const answerLabel = document.createElement('label');
+        answerLabel.textContent = 'Enter answers:';
+        answerLabel.className = 'select-label';
+        questionField.appendChild(answerLabel);
+
+        const answerField = document.createElement('input');
+        answerField.type = 'text';
+        answerField.placeholder = 'Enter answers here...';
+        answerField.className = 'question-input';
+        questionField.appendChild(answerField);
+      }
+
+      const fileUpload = document.createElement('input');
+      fileUpload.type = 'file';
+      fileUpload.accept = 'image/*';
+      fileUpload.className = 'file-input';
+      questionField.appendChild(fileUpload);
+      
+      questionContainer.appendChild(questionField);
+      document.getElementById('errorMessage').innerText = '';
+    }
+  </script>
+</head>
+<body>
+  <div class="content">
+    <h1>Quizzes/Exams</h1>
+    <button onclick="toggleQuizUploadSection()">Upload a new Quiz/Exam</button>
+
+    <div class="quiz-upload-section" id="quizUploadSection" style="display: none;">
+      <h2>Create a New Quiz/Exam</h2>
+      <form id="quizUploadForm" onsubmit="return validateForm()">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" placeholder="Enter Title" required>
+        </div>
+        <div class="form-group">
+          <label for="timeLimit">Time Limit (minutes):</label>
+          <input type="number" id="timeLimit" placeholder="Enter Time Limit" required>
+        </div>
+        <div class="form-group">
+          <label for="attempts">Attempts:</label>
+          <input type="number" id="attempts" placeholder="Enter Attempts" required>
+        </div>
+        <div class="form-group">
+          <label for="questionType">Select Question Type:</label>
+          <select id="questionType">
+            <option value="none">Select a question type</option>
+            <optgroup label="Question Types">
+              <option value="multipleChoice">Multiple Choice</option>
+              <option value="trueFalse">True/False</option>
+              <option value="shortAnswer">Short Answer</option>
+            </optgroup>
+          </select>
+        </div>
+        <button type="button" onclick="addQuestionField()" class="add-question-btn">Add Question</button>
+        <div id="questionContainer" class="question-container"></div>
+        <p class="error-message" id="errorMessage"></p>
+        <button type="submit" class="submit-button">Upload Quiz/Exam</button>
+      </form>
+    </div>
+  <script>
+    function toggleAutomaticGrading() {
+      const automaticGrading = document.getElementById('automaticGrading');
+      const tools = document.querySelector('.tools');
+      const toolsAutomatic = document.querySelector('.tools-automatic');
+      const feedback = document.querySelector('.feedback');
+
+      if (automaticGrading.checked) {
+        tools.style.display = 'none';
+        toolsAutomatic.style.display = 'none';
+        feedback.style.display = 'block';
+      } else {
+        tools.style.display = 'block';
+        toolsAutomatic.style.display = 'block';
+        feedback.style.display = 'block';
+      }
+    }
+
+    function uploadFeedback() {
+      const feedback = document.getElementById('feedbackText').value;
+      // Placeholder function for uploading feedback
+      alert(`Uploading feedback: ${feedback}`);
+    }
+  </script>
+      <head>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+            color: #333;
+          }
+      
+          textarea#feedbackText {
+            width: 20%;
+            height: 50px;
+            
+            margin-bottom: 40px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin-right: -190px;
+            margin: center;
+
+          }
+        
+          .tools {
+            display: none;
+            margin-top: 15px;
+          }
+      
+          .tool {
+            padding: 8px 15px;
+            margin: 0 5px;
+            background-color: #756f8e;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+      
+          .tool:hover {
+            background-color: #645c7b;
+          }
+        </style>
+        <script>
+          function toggleAutomaticGrading() {
+            const automaticGrading = document.getElementById('automaticGrading');
+            const feedbackContainer = document.querySelector('.feedback');
+            const tools = document.querySelector('.tools');
+      
+            if (automaticGrading.checked) {
+              feedbackContainer.style.display = 'block';
+              tools.style.display = 'none';
+            } else {
+              feedbackContainer.style.display = 'block';
+              tools.style.display = 'block';
+            }
+          }
+      
+          function uploadFeedback() {
+            const feedback = document.getElementById('feedbackText').value;
+            // Placeholder function for uploading feedback
+            alert(`Uploading feedback: ${feedback}`);
+          }
+        </script>
+      </head>
+      <body>
+        <label for="automaticGrading">Automatic Grading:</label>
+        <input type="checkbox" id="automaticGrading" onchange="toggleAutomaticGrading()">
+        
+        <div class="feedback" style="display: block;">
+          <textarea id="feedbackText" placeholder="Type feedback here..."></textarea>
+          <button onclick="uploadFeedback()">Upload Feedback</button>
+        </div>
+        <div class="tools">
+          <p>Grading Tools:</p>
+          <div class="grading-tools">
+            <button class="tool">Pens</button>
+            <button class="tool">Erasers</button>
+            <button class="tool">Highlighters</button>
+            <button class="tool">Text</button>  
+          </div>
+        </div>
+      </body>
+      </html>
