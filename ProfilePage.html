@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ProfilePage.css">
+    <title>User Profile</title>
+</head>
+<body>
+
+<div id="container">
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div id="sidebar-profile-container">
+            <div id="sidebar-profile-icon">
+                <img id="sidebar-profile-image" src="default-profile-image.jpg" alt="Profile Image">
+            </div>
+            <div id="sidebar-profile-details">
+                <span id="sidebar-first-name"></span>
+                <span id="sidebar-last-name"></span>
+            </div>
+        </div>
+        <button onclick="window.location.href='TMainPage.html'">Main page</button>
+        <button onclick="window.location.href='Help.html'">Help</button>
+        <button onclick="window.location.href='logout.html'">Logout</button>
+    </div>
+
+    <!-- Content -->
+    <div id="content">
+        <div id="profile-container">
+            <div id="top-profile-container">
+                <label for="profile-image-input" id="profile-label">
+                    <div id="profile-icon">
+                        <div id="profile-icon-frame">
+                            <img id="profile-image" src="default-profile-image.jpg" alt="Profile Image">
+                        </div>
+                    </div>
+                </label>
+                <button id="change-image">Change Image</button>
+                <input type="file" id="profile-image-input" accept="image/*" style="display: none;">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name">
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name">
+        </div>
+        <div class="form-group">
+            <label for="phone-number">Phone Number:</label>
+            <input type="tel" id="phone-number">
+        </div>
+        <div class="form-group">
+            <label for="email-address">Email Address:</label>
+            <input type="email" id="email-address">
+        </div>
+        <div class="form-group">
+            <label for="bio">Bio:</label>
+            <textarea id="bio" rows="5"></textarea>
+        </div>
+        <button id="save-button">Save</button>
+    </div>
+
+</div>
+
+<script src="ProfilePage.js"></script>
+</body>
+</html>
