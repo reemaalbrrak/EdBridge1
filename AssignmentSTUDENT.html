@@ -4,41 +4,41 @@
   <meta charset="UTF-8">
   <title>Assignment Student Page</title>
   <link rel="stylesheet" href="AssignmentSTUDENT.css">
-  <!-- Add your CSS styles -->
+  
+
   <div class="sidebar">
     <div class="logo">
         <img src="logo.png" alt="Logo" width="165px">
     </div>
 </head>
 <body>
-  <!-- Sidebar for student -->
+
   <div id="sidebar">
-    <!-- Sidebar content -->
-    <!-- ... -->
+    
   </div>
 
-  <!-- Main content -->
+ 
   <div id="main-content">
-    <!-- Assignment submission section -->
+    
     <div class="assignment">
       <h2>Assignment 1: Physics</h2>
       <p>Teacher: Nora Alajlan</p>
       <p>Description: Physics equation</p>
-      <p id="deadlineCountdown">Deadline: 7 days left</p> <!-- Deadline countdown -->
-      <input type="file" id="fileInput" accept=".pdf,.doc,.docx"> <!-- File upload -->
-      <textarea id=textArea placeholder="Write your submission..."></textarea> <!-- Text submission -->
+      <p id="deadlineCountdown">Deadline: 7 days left</p> 
+      <input type="file" id="fileInput" accept=".pdf,.doc,.docx"> 
+      <textarea id=textArea placeholder="Write your submission..."></textarea> 
 
       <button onclick="submitAssignment()">Submit</button>
-      <p id="submissionStatus"></p> <!-- Submission status message -->
+      <p id="submissionStatus"></p> 
       <button onclick="showFeedback()">Show Feedback</button>
       <div id="feedback" style="display: none;">
-        <!-- Display teacher's feedback -->
+ 
         <h3>Feedback from Teacher:</h3>
-        <p id="assignmentFeedback"></p> <!-- Display feedback -->
+        <p id="assignmentFeedback"></p> 
         <div id="replayFeedback" style="display: none;">
-          <textarea id="replyTextArea" placeholder="Write your reply..."></textarea> <!-- Reply to feedback -->
+          <textarea id="replyTextArea" placeholder="Write your reply..."></textarea> 
           <button onclick="submitReply()">Reply to Feedback</button>
-          <p id="replyStatus"></p> <!-- Reply status message -->
+          <p id="replyStatus"></p> 
         </div>
       </div>
     </div>
@@ -62,19 +62,19 @@ function submitReplay() {
   if (replayText) {
     document.getElementById('studentReplayText').innerText = `Student's Replay: ${replayText}`;
     document.getElementById('studentReplayText').style.display = 'block';
-    document.getElementById('replayInput').style.display = 'none'; // Hide the text area
+    document.getElementById('replayInput').style.display = 'none';
   } else {
     document.getElementById('replayMessage').style.display = 'block';
   }
 }
 
 </script>
-    <!-- Assignment grades and progress -->
+   
     <div id="grades">
       <h2>Assignment Grades</h2>
       <ul>
         <id="assignmentGrade">Assignment 1: Physics - Grade: A
-        <!-- Add more assignment grades here -->
+      
       </ul>
       <h2>Overall Progress</h2>
       <p id="progress">Progress: 80%</p>
@@ -82,10 +82,8 @@ function submitReplay() {
     </div>
   </div>
 
-  <!-- JavaScript code -->
-  
   <script>
-    // Function to validate and submit assignment
+  
     function submitAssignment() {
       const fileInput = document.getElementById('fileInput');
       const textArea = document.getElementById('textArea');
@@ -97,26 +95,25 @@ function submitReplay() {
       } else {
         submissionStatus.innerText = 'Assignment submitted';
         submissionStatus.style.color = 'green';
-        // Add logic to handle submission to server/database
+       
 
-        // Simulate a notification for new feedback
         simulateNotification('New feedback from Teacher');
 
-        // Simulate grade assignment and update progress
+      
         const grades = ['A', 'B', 'C', 'D', 'F'];
         const randomGrade = grades[Math.floor(Math.random() * grades.length)];
         document.getElementById('assignmentGrade').innerText = `Assignment 1: Physics - Grade: ${randomGrade}`;
         updateProgress();
       }
     }
-    // Function to display feedback
+    
     function showFeedback() {
       const feedback = document.getElementById('feedback');
       feedback.style.display = 'block';
-      document.getElementById('assignmentFeedback').innerText = 'Good effort!'; // Simulate feedback
+      document.getElementById('assignmentFeedback').innerText = 'Good effort!'; 
     }
 
-    // Function to submit student's reply to feedback
+   
     function submitReply() {
       const replyTextArea = document.getElementById('replyTextArea');
       const replyStatus = document.getElementById('replyStatus');
@@ -124,8 +121,8 @@ function submitReplay() {
       if (replyTextArea.value.trim() !== '') {
         replyStatus.innerText = 'Reply submitted successfully';
         replyStatus.style.color = 'green';
-        document.getElementById('replayFeedback').style.display = 'none'; // Hide reply section
-        // Add logic to handle reply submission to server/database
+        document.getElementById('replayFeedback').style.display = 'none'; 
+   
         const studentReply = document.createElement('p');
         studentReply.innerText = `Student's replay: ${replyTextArea.value}`;
         document.body.appendChild(studentReply);
@@ -134,19 +131,19 @@ function submitReplay() {
         replyStatus.style.color = 'red';
       }
     }
-    // Function to update progress bar based on grades
+  
     function updateProgress() {
       const progressBar = document.querySelector('.progress-bar');
       const grades = ['A', 'B', 'C', 'D', 'E'];
-      const completedAssignments = grades.length - 1; // Assuming 1 assignment completed
+      const completedAssignments = grades.length - 1; 
       const progress = (completedAssignments / grades.length) * 100;
       document.getElementById('progress').innerText = `Progress: ${progress.toFixed(2)}%`;
       progressBar.style.width = `${progress}%`;
     }
 
-    // Countdown timer for assignment deadline (1 week countdown)
+   
     const deadlineDate = new Date();
-    deadlineDate.setDate(deadlineDate.getDate() + 7); // Add 7 days
+    deadlineDate.setDate(deadlineDate.getDate() + 7); 
     const timer = document.getElementById('deadlineCountdown');
 
     const countdown = setInterval(() => {
@@ -166,13 +163,121 @@ function submitReplay() {
       }
     }, 1000);
 
-    // Simulate a notification pop-up on the page
+    
     function simulateNotification(message) {
       alert(message);
     }
 
-    // Call functions, simulate notifications, etc. as needed
-    updateProgress(); // Simulate progress update
+
+    updateProgress(); 
   </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Color System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #524f69;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #ffffff; 
+        }
+
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #524f69;
+            color: #fff;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            color: #333;
+        }
+
+        .green {
+            background-color: #4CAF50; /* Green */
+            color: #ffffff;
+        }
+
+        .yellow {
+            background-color: #FFC107; /* Yellow */
+            color: #333;
+        }
+
+        .red {
+            background-color: #F44336; /* Red */
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<h1>All Grades Reports</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Physics</td>
+            <td class="green">A</td>
+        </tr>
+        <tr>
+            <td>English</td>
+            <td class="yellow">C</td>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td class="red">D</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const gradeCells = document.querySelectorAll('td:nth-child(2)');
+
+        gradeCells.forEach(cell => {
+            const grade = cell.innerText.trim().toUpperCase();
+
+            if (grade === 'A' || grade === 'B') {
+                cell.classList.add('green');
+            } else if (grade === 'C') {
+                cell.classList.add('yellow');
+            } else {
+                cell.classList.add('red');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
